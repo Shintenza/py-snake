@@ -25,7 +25,7 @@ class Game:
 
     def init_game(self):
         self.__clock = pygame.time.Clock()
-        self.current_direction = Direction.DOWN
+        self.current_direction = Direction.RIGHT
 
         left, top, x_size, y_size, cell_size = self.return_board_cords(30, 20, 20)
         self.game_board = Board(self.screen, left, top, x_size, y_size, cell_size)
@@ -90,19 +90,19 @@ class Game:
                 self.__is_finished = True
             elif event.type == pygame.KEYDOWN:
                 if (
-                    event.key == pygame.K_s or event.key == pygame.K_j
+                    event.key == pygame.K_s or event.key == pygame.K_DOWN
                 ) and self.current_direction != Direction.UP:
                     self.current_direction = Direction.DOWN
                 if (
-                    event.key == pygame.K_a or event.key == pygame.K_h
+                    event.key == pygame.K_a or event.key == pygame.K_LEFT
                 ) and self.current_direction != Direction.RIGHT:
                     self.current_direction = Direction.LEFT
                 if (
-                    event.key == pygame.K_d or event.key == pygame.K_l
+                    event.key == pygame.K_d or event.key == pygame.K_RIGHT
                 ) and self.current_direction != Direction.LEFT:
                     self.current_direction = Direction.RIGHT
                 if (
-                    event.key == pygame.K_w or event.key == pygame.K_l
+                    event.key == pygame.K_w or event.key == pygame.K_UP
                 ) and self.current_direction != Direction.DOWN:
                     self.current_direction = Direction.UP
                 if event.key == pygame.K_r and self.is_game_over:
